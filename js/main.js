@@ -8,7 +8,7 @@ var parseAddGiftForm = function(data){
 	console.log(data);
 };
 
-$(function(){
+$('#additem').on('pageinit', function(){
 
 	var aiform = $('#additemform'),
 		aierrorslink = $('#aierrorslink')
@@ -31,23 +31,11 @@ $(function(){
 			parseAddGiftForm(data);
 		}
 	});
-});
 
-submitHandler: function() {
-	var data = $(".additemform").serializeArray();
-	localStorage.setItem("formdata", data);
-}
-
-
-
-
-
-
-
-
-
-
-
+	submitHandler: function() {
+		var data = $(".additemform").serializeArray();
+		localStorage.setItem("formdata", data);
+	}
 
 
 /*
@@ -120,14 +108,14 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 	getSelectedRadio();
 	var item		= {};
-		item.group		= ["Group:", $("groups").value];
-		item.fname		= ["First Name:", $("fname").value];
-		item.lname		= ["Last Name:", $("lname").value];
-		item.gift		= ["Gift:", $("gift").value];
-		item.quantity	= ["Quantity:", $("quantity").value];
+		item.group		= ["Group:", $("groups").val()];
+		item.fname		= ["First Name:", $("fname").val()];
+		item.lname		= ["Last Name:", $("lname").val()];
+		item.gift		= ["Gift:", $("gift").val()];
+		item.quantity	= ["Quantity:", $("quantity").val()];
 		item.purchase	= ["Where to Buy:", purchaseValue]; 
-		item.buydate	= ["Buy Date:", $("buydate").value];
-		item.notes		= ["Notes:", $("notes").value];
+		item.buydate	= ["Buy Date:", $("buydate").val()];
+		item.notes		= ["Notes:", $("notes").val()];
 		//Save data into Local Storage: Use Stringify to convert our object
 		localStorage.setItem(id, JSON.stringify(item));
 		alert("Contact Saved!");
