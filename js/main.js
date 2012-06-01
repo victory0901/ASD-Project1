@@ -91,17 +91,17 @@ window.addEventListener("DOMContentLoaded", function(){
 	function toggleControls(n){
 		switch(n){
 			case "on":
-				$("contactForm").style.display = "none";
-				$("clear").style.display = "inline";
-				$("displayLink").style.display = "none";
-				$("addNew").style.display = "inline";
+				$("contactForm").css("display","none");
+				$("clear").css("display","inline");
+				$("displayLink").css("display","none");
+				$("addNew").css("display","inline");
 				break;
 			case "off":
-				$("contactForm").style.display = "block";
-				$("clear").style.display = "inline";
-				$("displayLink").style.display = "inline";
-				$("addNew").style.display = "none";
-				$("items").style.display = "none";
+				$("contactForm").css("display","block");
+				$("clear").css("display","inline");
+				$("displayLink").css("display","inline");
+				$("addNew").css("display","none");
+				$("items").css("display","none");
 				break;
 			default:
 				return false;
