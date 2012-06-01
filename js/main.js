@@ -43,14 +43,14 @@ submitHandler: function() {
 
 
 
+
+
+
+
+
+
+
 /*
-
-
-
-
-
-
-
 
 //Wait for DOM to be ready
 window.addEventListener("DOMContentLoaded", function(){
@@ -75,6 +75,8 @@ window.addEventListener("DOMContentLoaded", function(){
 		}	
 		selectLi.appendChild(makeSelect);
 	}
+	
+*/
 	
 	//Find the value of selected radio button
 	function getSelectedRadio(){
