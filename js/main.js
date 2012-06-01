@@ -1,6 +1,6 @@
-//MIU Project 4
+//ASD Project 1
 //James Floyd II 
-//April 26, 2012
+//June 1, 2012
 
 
 var parseAddGiftForm = function(data){
