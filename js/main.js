@@ -58,7 +58,7 @@ window.bind("DOMContentLoaded", function(){
 			var makeOption = $("option");
 			var optText = contactGroups[i];
 			makeOption.attr("value", optText);
-			makeOption.innerHTML = optText;
+			makeOption.html = optText;
 			makeSelect.append(makeOption);
 		}	
 		selectLi.append(makeSelect);
@@ -186,7 +186,7 @@ window.bind("DOMContentLoaded", function(){
 		editLink.key = key;
 		var editText = "Edit Gift ";
 		editLink.bind("click", editItem);
-		editLink.innerHTML = editText; 
+		editLink.html = editText; 
 		linksLi.append(editLink);
 		
 		//add delete single item link
@@ -195,7 +195,7 @@ window.bind("DOMContentLoaded", function(){
 		deleteLink.key = key;
 		var deleteText = "Delete Gift";
 		deleteLink.bind("click", deleteItem);
-		deleteLink.innerHTML = deleteText;
+		deleteLink.html = deleteText;
 		linksLi.append(deleteLink);
 	}
 	
@@ -263,39 +263,39 @@ window.bind("DOMContentLoaded", function(){
 		var getGift = $("gift");
 		
 		//Reset Error Messages
-		errMsg.innerHTML = "";
-		getGroup.style.border = "1px solid black";
-		getFname.style.border = "1px solid black";
-		getLname.style.border = "1px solid black";
-		getGift.style.border = "1px solid black";
+		errMsg.html = "";
+		getGroup.css("border","1px solid black");
+		getFname.css("border","1px solid black");
+		getLname.css("border","1px solid black");
+		getGift.css("border","1px solid black");
 		
 		//Get error messages
 		var messageAry = [];
 		//Group validation
 		if(getGroup.val() === "--Choose A Group--"){
 			var groupError = "Please choose a group.";
-			getGroup.style.border = "1px solid red";
+			getGroup.css("border","1px solid red");
 			messageAry.push(groupError);
 		}
 		
 		//First Name Validation
 		if(getFname.val() === ""){
 			var fNameError = "Please enter a first name.";
-			getFname.style.border = "1px solid red";
+			getFname.css("border","1px solid red");
 			messageAry.push(fNameError);
 		}
 		
 		//Last Name Validation
 		if(getLname.val() === ""){
 			var lNameError = "Please enter a last name.";
-			getLname.style.border = "1px solid red";
+			getLname.css("border","1px solid red");
 			messageAry.push(lNameError);
 		}
 		
 		//Gift Validation
 		if(getGift.val() === ""){
 			var giftError = "Please a gift.";
-			getGift.style.border = "1px solid red";
+			getGift.css("border","1px solid red");
 			messageAry.push(giftError);
 		}
 		
@@ -303,7 +303,7 @@ window.bind("DOMContentLoaded", function(){
 		if(messageAry.length >= 1){
 			for(var i=0, j=messageAry.length; i < j; i++){
 				var txt = $("li");
-				txt.innerHTML = messageAry[i];
+				txt.html = messageAry[i];
 				errMsg.append(txt);
 			}
 			e.preventDefault();
