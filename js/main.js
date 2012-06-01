@@ -41,7 +41,7 @@ $('#additem').on('pageinit', function(){
 /*
 
 //Wait for DOM to be ready
-window.addEventListener("DOMContentLoaded", function(){
+window.bind("DOMContentLoaded", function(){
 
 	//getElementById Function
 	function $(x){
@@ -185,7 +185,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		 editLink.href = "#";
 		editLink.key = key;
 		var editText = "Edit Gift ";
-		editLink.addEventListener("click", editItem);
+		editLink.bind("click", editItem);
 		editLink.innerHTML = editText; 
 		linksLi.append(editLink);
 		
@@ -194,7 +194,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		deleteLink.href = "#";
 		deleteLink.key = key;
 		var deleteText = "Delete Gift";
-		deleteLink.addEventListener("click", deleteItem);
+		deleteLink.bind("click", deleteItem);
 		deleteLink.innerHTML = deleteText;
 		linksLi.append(deleteLink);
 	}
@@ -224,14 +224,12 @@ window.addEventListener("DOMContentLoaded", function(){
 		$("buydate").val() = item.buydate[1];
 		$("notes").val() = item.notes[1];
 		
-		//Remove the initial listener from the input 'save contact' button.
 		save.unbind("click", storeData);
-		//Change Submit button Value to say edit button
+
 		$("submit").val() = "Edit Contact";
 		var editSubmit = $("submit");
-		//Save the key value established in this function as aproperty of the editSubmit event
-		//so we can use that value when we save the date we edited
-		editSubmit.addEventListener("click", validate);
+
+		editSubmit.bind("click", validate);
 		editSubmit.key = this.key;
 	}
 	
@@ -326,11 +324,11 @@ window.addEventListener("DOMContentLoaded", function(){
 
 	//Set Link & Submit Click Events
 	var displayLink =  $("displayLink");
-	displayLink.addEventListener("click", getData);
+	displayLink.bind("click", getData);
 	var clearLink = $("clear");
-	clearLink.addEventListener("click", clearLocal); 
+	clearLink.bind("click", clearLocal); 
 	var save = $("submit");
-	save.addEventListener("click", validate);
+	save.bind("click", validate);
 });
 
 */
