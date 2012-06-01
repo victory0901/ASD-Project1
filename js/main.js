@@ -53,15 +53,15 @@ window.addEventListener("DOMContentLoaded", function(){
 		var formTag = document.getElementsByTagName("form"), //formTag is an array of all forms
 			selectLi= $("select"),
 			makeSelect = $("select");
-			makeSelect.setAttribute("id", "groups");
+			makeSelect.attr("id", "groups");
 		for(var i=0, j=contactGroups.length; i<j; i++){
 			var makeOption = $("option");
 			var optText = contactGroups[i];
-			makeOption.setAttribute("value", optText);
+			makeOption.attr("value", optText);
 			makeOption.innerHTML = optText;
-			makeSelect.appendChild(makeOption);
+			makeSelect.append(makeOption);
 		}	
-		selectLi.appendChild(makeSelect);
+		selectLi.append(makeSelect);
 	}
 	
 */
@@ -131,28 +131,28 @@ window.addEventListener("DOMContentLoaded", function(){
 		}
 		//Write Data from Local Storage to the browser.
 		var makeDiv = $("div");
-		makeDiv.setAttribute("id", "items");
+		makeDiv.attr("id", "items");
 		var makeList = $("ul");
-		makeDiv.appendChild(makeList);
-		document.body.appendChild(makeDiv);
+		makeDiv.append(makeList);
+		document.body.append(makeDiv);
 		$("items").style.display = "block";
 		for(var i=0, len=localStorage.length; i<len; i++){
 			var makeLi = $("li");
 			var linksLi = $("li");
-			makeList.appendChild(makeLi);
+			makeList.append(makeLi);
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			//Convert a string from local storage value back to an object by using JSON.parse
 			var obj = JSON.parse(value);
 			var makeSubList = $("ul");
-			makeLi.appendChild(makeSubList);
+			makeLi.append(makeSubList);
 			getImage(obj.group[1], makeSubList);
 			for(var n in obj){
 				var makeSubLi = $("li");
-				makeSubList.appendChild(makeSubLi);
+				makeSubList.append(makeSubLi);
 				var optSubText = obj[n][0]+" "+obj[n][1];
 				makeSubLi.innerHTML = optSubText;
-				makeSubList.appendChild(linksLi);
+				makeSubList.append(linksLi);
 			}
 			makeItemLinks(localStorage.key(i), linksLi);  //Create our edit and delete buttons/links for each item in Local Storage
 		}
@@ -161,10 +161,10 @@ window.addEventListener("DOMContentLoaded", function(){
 	//Get Image for the right category
 	function getImage (catName, makeSubList){
 		var imageLi = $("li");
-		makeSubList.appendChild(imageLi);
+		makeSubList.append(imageLi);
 		var newImg = $("img");
-		var setSrc= newImg.setAttribute("src", "images/"+ catName + ".png");
-		imageLi.appendChild(newImg);
+		var setSrc= newImg.attr("src", "images/"+ catName + ".png");
+		imageLi.append(newImg);
 	}
 	
 	//Auto Populate Local Storage
@@ -187,7 +187,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		var editText = "Edit Gift ";
 		editLink.addEventListener("click", editItem);
 		editLink.innerHTML = editText; 
-		linksLi.appendChild(editLink);
+		linksLi.append(editLink);
 		
 		//add delete single item link
 		var deleteLink = $("a");
@@ -196,7 +196,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		var deleteText = "Delete Gift";
 		deleteLink.addEventListener("click", deleteItem);
 		deleteLink.innerHTML = deleteText;
-		linksLi.appendChild(deleteLink);
+		linksLi.append(deleteLink);
 	}
 	
 	function editItem(){
@@ -216,9 +216,9 @@ window.addEventListener("DOMContentLoaded", function(){
 		var radios = document.forms[0].local;
 		for(var i=0; i<radios.length; i++){
 			if(radios[i].value == "online" && item.purchase[1] == "online"){
-				radios[i].setAttribute("checked", "checked");
+				radios[i].attr("checked", "checked");
 			}else if(radios[i].value == "store" && item.purchase[1] == "store"){
-				radios[i].setAttribute("checked", "checked");
+				radios[i].attr("checked", "checked");
 			}
 		}
 		$("buydate").value = item.buydate[1];
@@ -306,7 +306,7 @@ window.addEventListener("DOMContentLoaded", function(){
 			for(var i=0, j=messageAry.length; i < j; i++){
 				var txt = $("li");
 				txt.innerHTML = messageAry[i];
-				errMsg.appendChild(txt);
+				errMsg.append(txt);
 			}
 			e.preventDefault();
 			return false;
