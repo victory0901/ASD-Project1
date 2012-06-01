@@ -52,10 +52,10 @@ window.addEventListener("DOMContentLoaded", function(){
 	function makeCats(){
 		var formTag = document.getElementsByTagName("form"), //formTag is an array of all forms
 			selectLi= $("select"),
-			makeSelect = document.createElement("select");
+			makeSelect = $("select");
 			makeSelect.setAttribute("id", "groups");
 		for(var i=0, j=contactGroups.length; i<j; i++){
-			var makeOption = document.createElement("option");
+			var makeOption = $("option");
 			var optText = contactGroups[i];
 			makeOption.setAttribute("value", optText);
 			makeOption.innerHTML = optText;
@@ -123,31 +123,32 @@ window.addEventListener("DOMContentLoaded", function(){
 	}
 	
 	function getData(){
+	
 		toggleControls("on");
 		if(localStorage.length === 0){
 			alert("There is no data in local storage, so default data was added.");
 			autoFillData();
 		}
 		//Write Data from Local Storage to the browser.
-		var makeDiv = document.createElement("div");
+		var makeDiv = $("div");
 		makeDiv.setAttribute("id", "items");
-		var makeList = document.createElement("ul");
+		var makeList = $("ul");
 		makeDiv.appendChild(makeList);
 		document.body.appendChild(makeDiv);
 		$("items").style.display = "block";
 		for(var i=0, len=localStorage.length; i<len; i++){
-			var makeLi = document.createElement("li");
-			var linksLi = document.createElement("li");
+			var makeLi = $("li");
+			var linksLi = $("li");
 			makeList.appendChild(makeLi);
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			//Convert a string from local storage value back to an object by using JSON.parse
 			var obj = JSON.parse(value);
-			var makeSubList = document.createElement("ul");
+			var makeSubList = $("ul");
 			makeLi.appendChild(makeSubList);
 			getImage(obj.group[1], makeSubList);
 			for(var n in obj){
-				var makeSubLi = document.createElement("li");
+				var makeSubLi = $("li");
 				makeSubList.appendChild(makeSubLi);
 				var optSubText = obj[n][0]+" "+obj[n][1];
 				makeSubLi.innerHTML = optSubText;
@@ -159,9 +160,9 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	//Get Image for the right category
 	function getImage (catName, makeSubList){
-		var imageLi = document.createElement("li");
+		var imageLi = $("li");
 		makeSubList.appendChild(imageLi);
-		var newImg = document.createElement("img");
+		var newImg = $("img");
 		var setSrc= newImg.setAttribute("src", "images/"+ catName + ".png");
 		imageLi.appendChild(newImg);
 	}
@@ -180,7 +181,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	//Creat the edit and delete links for each stored item when displayed
 	function makeItemLinks(key, linksLi){
 		//add edit single item link
-		var editLink = document.createElement("a");
+		var editLink = $("a");
 		 editLink.href = "#";
 		editLink.key = key;
 		var editText = "Edit Gift ";
@@ -189,7 +190,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		linksLi.appendChild(editLink);
 		
 		//add delete single item link
-		var deleteLink = document.createElement("a");
+		var deleteLink = $("a");
 		deleteLink.href = "#";
 		deleteLink.key = key;
 		var deleteText = "Delete Gift";
@@ -303,7 +304,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		//If there were errors display them on the screen
 		if(messageAry.length >= 1){
 			for(var i=0, j=messageAry.length; i < j; i++){
-				var txt = document.createElement("li");
+				var txt = $("li");
 				txt.innerHTML = messageAry[i];
 				errMsg.appendChild(txt);
 			}
