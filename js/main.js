@@ -255,6 +255,8 @@ window.bind("DOMContentLoaded", function(){
 		}
 	}
 	
+/*	
+	
 	function validate(e){
 		//Define the elements we want to check
 		var getGroup = $("groups");
@@ -314,6 +316,8 @@ window.bind("DOMContentLoaded", function(){
 			storeData(this.key);
 		}
 	}
+	
+*/
 	
 	 //Variable Defaults
 	var contactGroups = ["--Choose A Group--", "Family", "Non-Family"],
