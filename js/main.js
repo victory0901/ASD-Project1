@@ -68,7 +68,7 @@ window.bind("DOMContentLoaded", function(){
 	
 	//Find the value of selected radio button
 	function getSelectedRadio(){
-		var radios = document.forms[0].local;
+		var radios = $("form").local;
 		for(var i=0; i<radios.length; i++){
 			if (radios[i].checked){
 				purchaseValue = radios[i].val();
@@ -213,7 +213,7 @@ window.bind("DOMContentLoaded", function(){
 		$("lname").val() = item.lname[1];
 		$("gift").val() = item.gift[1];
 		$("quantity").val() = item.quantity[1];
-		var radios = document.forms[0].local;
+		var radios = $("form").local;
 		for(var i=0; i<radios.length; i++){
 			if(radios[i].val() == "online" && item.purchase[1] == "online"){
 				radios[i].attr("checked", "checked");
@@ -323,11 +323,11 @@ window.bind("DOMContentLoaded", function(){
 	makeCats();
 
 	//Set Link & Submit Click Events
-	var displayLink =  $("displayLink");
+	var displayLink =  $("#displayLink");
 	displayLink.bind("click", getData);
-	var clearLink = $("clear");
+	var clearLink = $("#clear");
 	clearLink.bind("click", clearLocal); 
-	var save = $("submit");
+	var save = $("#submit");
 	save.bind("click", validate);
 });
 
