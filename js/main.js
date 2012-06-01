@@ -71,7 +71,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		var radios = document.forms[0].local;
 		for(var i=0; i<radios.length; i++){
 			if (radios[i].checked){
-				purchaseValue = radios[i]val();
+				purchaseValue = radios[i].val();
 			}
 		}
 	}
@@ -208,26 +208,26 @@ window.addEventListener("DOMContentLoaded", function(){
 		toggleControls("off");
 		
 		//Populate the form fields with current localStorage values.
-		$("groups")val() = item.group[1];
-		$("fname")val() = item.fname[1];
-		$("lname")val() = item.lname[1];
-		$("gift")val() = item.gift[1];
-		$("quantity")val() = item.quantity[1];
+		$("groups").val() = item.group[1];
+		$("fname").val() = item.fname[1];
+		$("lname").val() = item.lname[1];
+		$("gift").val() = item.gift[1];
+		$("quantity").val() = item.quantity[1];
 		var radios = document.forms[0].local;
 		for(var i=0; i<radios.length; i++){
-			if(radios[i]val() == "online" && item.purchase[1] == "online"){
+			if(radios[i].val() == "online" && item.purchase[1] == "online"){
 				radios[i].attr("checked", "checked");
-			}else if(radios[i]val() == "store" && item.purchase[1] == "store"){
+			}else if(radios[i].val() == "store" && item.purchase[1] == "store"){
 				radios[i].attr("checked", "checked");
 			}
 		}
-		$("buydate")val() = item.buydate[1];
-		$("notes")val() = item.notes[1];
+		$("buydate").val() = item.buydate[1];
+		$("notes").val() = item.notes[1];
 		
 		//Remove the initial listener from the input 'save contact' button.
-		save.removeEventListener("click", storeData);
+		save.unbind("click", storeData);
 		//Change Submit button Value to say edit button
-		$("submit")val() = "Edit Contact";
+		$("submit").val() = "Edit Contact";
 		var editSubmit = $("submit");
 		//Save the key value established in this function as aproperty of the editSubmit event
 		//so we can use that value when we save the date we edited
@@ -274,28 +274,28 @@ window.addEventListener("DOMContentLoaded", function(){
 		//Get error messages
 		var messageAry = [];
 		//Group validation
-		if(getGroupval() === "--Choose A Group--"){
+		if(getGroup.val() === "--Choose A Group--"){
 			var groupError = "Please choose a group.";
 			getGroup.style.border = "1px solid red";
 			messageAry.push(groupError);
 		}
 		
 		//First Name Validation
-		if(getFnameval() === ""){
+		if(getFname.val() === ""){
 			var fNameError = "Please enter a first name.";
 			getFname.style.border = "1px solid red";
 			messageAry.push(fNameError);
 		}
 		
 		//Last Name Validation
-		if(getLnameval() === ""){
+		if(getLname.val() === ""){
 			var lNameError = "Please enter a last name.";
 			getLname.style.border = "1px solid red";
 			messageAry.push(lNameError);
 		}
 		
 		//Gift Validation
-		if(getGiftval() === ""){
+		if(getGift.val() === ""){
 			var giftError = "Please a gift.";
 			getGift.style.border = "1px solid red";
 			messageAry.push(giftError);
