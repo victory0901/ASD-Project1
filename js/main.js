@@ -8,7 +8,7 @@ var parseAddGiftForm = function(data){
 	console.log(data);
 };
 
-$(document).ready(function(){
+$(function(){
 
 	var aiform = $('#additemform'),
 		aierrorslink = $('#aierrorslink')
