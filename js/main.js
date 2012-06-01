@@ -71,7 +71,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		var radios = document.forms[0].local;
 		for(var i=0; i<radios.length; i++){
 			if (radios[i].checked){
-				purchaseValue = radios[i].value;
+				purchaseValue = radios[i]val();
 			}
 		}
 	}
@@ -135,7 +135,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		var makeList = $("ul");
 		makeDiv.append(makeList);
 		document.body.append(makeDiv);
-		$("items").style.display = "block";
+		$("items").css("display","block");
 		for(var i=0, len=localStorage.length; i<len; i++){
 			var makeLi = $("li");
 			var linksLi = $("li");
@@ -151,7 +151,7 @@ window.addEventListener("DOMContentLoaded", function(){
 				var makeSubLi = $("li");
 				makeSubList.append(makeSubLi);
 				var optSubText = obj[n][0]+" "+obj[n][1];
-				makeSubLi.innerHTML = optSubText;
+				makeSubLi.append(optSubText);
 				makeSubList.append(linksLi);
 			}
 			makeItemLinks(localStorage.key(i), linksLi);  //Create our edit and delete buttons/links for each item in Local Storage
@@ -208,26 +208,26 @@ window.addEventListener("DOMContentLoaded", function(){
 		toggleControls("off");
 		
 		//Populate the form fields with current localStorage values.
-		$("groups").value = item.group[1];
-		$("fname").value = item.fname[1];
-		$("lname").value = item.lname[1];
-		$("gift").value = item.gift[1];
-		$("quantity").value = item.quantity[1];
+		$("groups")val() = item.group[1];
+		$("fname")val() = item.fname[1];
+		$("lname")val() = item.lname[1];
+		$("gift")val() = item.gift[1];
+		$("quantity")val() = item.quantity[1];
 		var radios = document.forms[0].local;
 		for(var i=0; i<radios.length; i++){
-			if(radios[i].value == "online" && item.purchase[1] == "online"){
+			if(radios[i]val() == "online" && item.purchase[1] == "online"){
 				radios[i].attr("checked", "checked");
-			}else if(radios[i].value == "store" && item.purchase[1] == "store"){
+			}else if(radios[i]val() == "store" && item.purchase[1] == "store"){
 				radios[i].attr("checked", "checked");
 			}
 		}
-		$("buydate").value = item.buydate[1];
-		$("notes").value = item.notes[1];
+		$("buydate")val() = item.buydate[1];
+		$("notes")val() = item.notes[1];
 		
 		//Remove the initial listener from the input 'save contact' button.
 		save.removeEventListener("click", storeData);
 		//Change Submit button Value to say edit button
-		$("submit").value = "Edit Contact";
+		$("submit")val() = "Edit Contact";
 		var editSubmit = $("submit");
 		//Save the key value established in this function as aproperty of the editSubmit event
 		//so we can use that value when we save the date we edited
@@ -274,28 +274,28 @@ window.addEventListener("DOMContentLoaded", function(){
 		//Get error messages
 		var messageAry = [];
 		//Group validation
-		if(getGroup.value === "--Choose A Group--"){
+		if(getGroupval() === "--Choose A Group--"){
 			var groupError = "Please choose a group.";
 			getGroup.style.border = "1px solid red";
 			messageAry.push(groupError);
 		}
 		
 		//First Name Validation
-		if(getFname.value === ""){
+		if(getFnameval() === ""){
 			var fNameError = "Please enter a first name.";
 			getFname.style.border = "1px solid red";
 			messageAry.push(fNameError);
 		}
 		
 		//Last Name Validation
-		if(getLname.value === ""){
+		if(getLnameval() === ""){
 			var lNameError = "Please enter a last name.";
 			getLname.style.border = "1px solid red";
 			messageAry.push(lNameError);
 		}
 		
 		//Gift Validation
-		if(getGift.value === ""){
+		if(getGiftval() === ""){
 			var giftError = "Please a gift.";
 			getGift.style.border = "1px solid red";
 			messageAry.push(giftError);
